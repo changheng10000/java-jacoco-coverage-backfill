@@ -1,6 +1,6 @@
 # Java JaCoCo Coverage Backfill Skill
 
-Universal Codex skill for Java test-coverage backfill using JaCoCo, focused on branch-quality improvement with guardrail metrics.
+Universal skill for Codex and Claude Code to backfill Java test coverage using JaCoCo, focused on branch-quality improvement with guardrail metrics.
 
 ## What This Skill Solves
 - Detects Maven/Gradle projects and report locations quickly.
@@ -30,13 +30,17 @@ java-jacoco-coverage-backfill/
 - JaCoCo XML report generation enabled (`jacoco.xml` or `jacocoTestReport.xml`).
 - Python 3.9+ for analysis scripts.
 
-## Install (Codex Skill)
+## Install (Codex + Claude Code)
 See [INSTALL.md](INSTALL.md) for complete steps.
 
-Quick manual install:
+Quick one-command install to both tools:
 ```bash
-mkdir -p "$CODEX_HOME/skills"
-cp -R java-jacoco-coverage-backfill "$CODEX_HOME/skills/"
+./scripts/install_skill.sh both
+```
+
+Install only for Claude Code:
+```bash
+./scripts/install_skill.sh claude
 ```
 
 ## Quick Usage
