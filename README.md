@@ -12,6 +12,7 @@ Universal skill for Codex and Claude Code to backfill Java test coverage using J
 ## Repository Structure
 ```text
 java-jacoco-coverage-backfill/
+├── install.sh
 ├── SKILL.md
 ├── scripts/
 │   ├── detect_build_tool.sh
@@ -35,12 +36,12 @@ See [INSTALL.md](INSTALL.md) for complete steps.
 
 Quick one-command install to both tools:
 ```bash
-./scripts/install_skill.sh both
+./install.sh both
 ```
 
 Install only for Claude Code:
 ```bash
-./scripts/install_skill.sh claude
+./install.sh claude
 ```
 
 ## Quick Usage

@@ -4,31 +4,43 @@
 From repository root:
 
 ```bash
-./scripts/install_skill.sh both
+./install.sh both
 ```
 
 Targets:
-- `./scripts/install_skill.sh codex`
-- `./scripts/install_skill.sh claude`
-- `./scripts/install_skill.sh both`
+- `./install.sh codex`
+- `./install.sh claude`
+- `./install.sh both`
 
 ## Option 2: Manual Install (Codex)
-Clone or copy this folder into your Codex skills directory:
+Install only the essential skill files (`SKILL.md` + runtime folders such as `scripts/`, `references/`, `assets/`, `agents/` when present):
 
 ```bash
-mkdir -p "$CODEX_HOME/skills"
-cp -R java-jacoco-coverage-backfill "$CODEX_HOME/skills/"
+SKILL_NAME="java-jacoco-coverage-backfill"
+TARGET="${CODEX_HOME:-$HOME/.codex}/skills/$SKILL_NAME"
+mkdir -p "$TARGET"
+cp SKILL.md "$TARGET/SKILL.md"
+[ -d scripts ] && cp -R scripts "$TARGET/scripts"
+[ -d references ] && cp -R references "$TARGET/references"
+[ -d assets ] && cp -R assets "$TARGET/assets"
+[ -d agents ] && cp -R agents "$TARGET/agents"
 ```
 
 If `CODEX_HOME` is not set, Codex commonly uses:
 - macOS/Linux: `~/.codex`
 
 ## Option 3: Manual Install (Claude Code)
-Clone or copy this folder into your Claude Code skills directory:
+Install only the essential skill files:
 
 ```bash
-mkdir -p "$CLAUDE_HOME/skills"
-cp -R java-jacoco-coverage-backfill "$CLAUDE_HOME/skills/"
+SKILL_NAME="java-jacoco-coverage-backfill"
+TARGET="${CLAUDE_HOME:-$HOME/.claude}/skills/$SKILL_NAME"
+mkdir -p "$TARGET"
+cp SKILL.md "$TARGET/SKILL.md"
+[ -d scripts ] && cp -R scripts "$TARGET/scripts"
+[ -d references ] && cp -R references "$TARGET/references"
+[ -d assets ] && cp -R assets "$TARGET/assets"
+[ -d agents ] && cp -R agents "$TARGET/agents"
 ```
 
 If `CLAUDE_HOME` is not set, Claude Code commonly uses:
@@ -39,15 +51,13 @@ Clone directly:
 
 ```bash
 git clone https://github.com/changheng10000/java-jacoco-coverage-backfill.git
-mkdir -p "$CODEX_HOME/skills"
-cp -R java-jacoco-coverage-backfill "$CODEX_HOME/skills/"
 ```
 
 Install to both Codex and Claude Code after clone:
 
 ```bash
 cd java-jacoco-coverage-backfill
-./scripts/install_skill.sh both
+./install.sh both
 ```
 
 ## Verify Installation
